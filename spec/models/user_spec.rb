@@ -23,11 +23,6 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a bio' do
-      subject.bio = nil
-      expect(subject).to_not be_valid
-    end
-
     it 'is not valid with a username with less than 3 characters' do
       subject.username = 'us'
       expect(subject).to_not be_valid
