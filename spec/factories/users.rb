@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user do
-    username { "MyString" }
-    email { "MyString" }
-    bio { "MyText" }
-    location { "MyString" }
+    username { "TestUsername" }
+    email { "email@email.com" }
+    bio { "This is an example bio statement." }
+    location { "Location" }
     admin { false }
   end
 end
