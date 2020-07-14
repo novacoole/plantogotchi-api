@@ -13,6 +13,11 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
 
+    it 'is not valid without a password' do
+      subject.password = nil
+      expect(subject).to_not be_valid
+    end
+
     it 'is not valid without a email' do
       subject.email = nil
       expect(subject).to_not be_valid
@@ -23,8 +28,24 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
 
+    it 'is not valid with a username with less than 3 characters' do
+      subject.username = 'us'
+      expect(subject).to_not be_valid
+    end
+
     it 'is not valid with a password with less than 8 characters' do
-      subject.password.length = 7
+      subject.password = 'invalid'
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid with an email without @ symbol' do
+      subject.email = 'emailatemail.com'
+      expect(subject).to_not be_valid
+    end
+
+
+    it 'is not valid with an email without .com' do
+      subject.email = 'emailatemailcom'
       expect(subject).to_not be_valid
     end
 
