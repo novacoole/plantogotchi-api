@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :breed do
-    name { "MyString" }
-    description { "MyText" }
-    max_growth { 1 }
+    name { "breed" }
+    description { "short description of this breed, blah blah" }
+    max_growth { 25 }
   end
 end

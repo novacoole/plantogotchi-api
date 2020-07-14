@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :plant do
-    name { "MyString" }
-    water_level { 1 }
-    food_level { 1 }
-    breed_id { nil }
-    alive { false }
+    name { "mybaby" }
+    water_level { 100 }
+    food_level { 100 }
+    breed_id { 1 }
+    alive { true }
     growth_stage { 1 }
   end
 end
