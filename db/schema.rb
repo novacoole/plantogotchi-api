@@ -25,14 +25,16 @@ ActiveRecord::Schema.define(version: 2020_07_14_055016) do
 
   create_table "plants", force: :cascade do |t|
     t.string "name"
-    t.integer "water_level"
-    t.integer "food_level"
+    t.integer "water_level", default: 100
+    t.integer "food_level", default: 100
     t.bigint "breeds_id", null: false
-    t.boolean "alive"
-    t.integer "growth_stage"
+    t.bigint "users_id", null: false
+    t.boolean "alive", default: true
+    t.integer "growth_stage", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["breeds_id"], name: "index_plants_on_breeds_id"
+    t.index ["users_id"], name: "index_plants_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +49,5 @@ ActiveRecord::Schema.define(version: 2020_07_14_055016) do
   end
 
   add_foreign_key "plants", "breeds", column: "breeds_id"
+  add_foreign_key "plants", "users", column: "users_id"
 end

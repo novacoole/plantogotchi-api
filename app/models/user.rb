@@ -4,4 +4,5 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 8 }
     validates :email, email: true
 
+    has_many :plants
 end
