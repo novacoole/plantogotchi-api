@@ -15,4 +15,8 @@ RSpec.describe Breed, type: :model do
     it { expect(subject).to validate_numericality_of(:max_growth).is_greater_than(10) }
 
   end
+
+  context 'associations' do
+    it { expect(subject).to have_many(:plants) }
+  end
 end

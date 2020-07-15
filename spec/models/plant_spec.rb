@@ -12,14 +12,17 @@ RSpec.describe Plant, type: :model do
     it { expect(subject).to validate_presence_of(:name) }
     it { expect(subject).to validate_presence_of(:water_level) }
     it { expect(subject).to validate_presence_of(:food_level) }
-    it { expect(subject).to validate_presence_of(:breed_id) }
-    it { expect(subject).to validate_presence_of(:user_id) }
     it { expect(subject).to validate_presence_of(:alive) }
     it { expect(subject).to validate_presence_of(:growth_stage) }
     it { expect(subject).to validate_length_of(:name).is_at_least(3).on(:create) }
-    # it { expect(subject).to validate_numericality_of(:water_level).is_equal_to(100) }
-    # it { expect(subject).to validate_numericality_of(:food_level).is_equal_to(100) }
-    # it { expect(subject).to validate_numericality_of(:growth_stage).is_equal_to(1) }
+    it { expect(subject).to validate_numericality_of(:water_level).is_greater_than(-1).is_less_than(101) }
+    it { expect(subject).to validate_numericality_of(:food_level).is_greater_than(-1).is_less_than(101) }
+    it { expect(subject).to validate_numericality_of(:growth_stage).is_greater_than(0).is_less_than(26) }
+
+    context 'associations' do
+      it { expect(subject).to belong_to(:user) }
+      it { expect(subject).to belong_to(:breed) }
+    end
 
   end
 end

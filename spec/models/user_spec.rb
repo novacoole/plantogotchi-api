@@ -25,6 +25,11 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+
+  context 'associations' do
+    it { expect(subject).to have_many(:plants) }
+  end
 end
 
   
