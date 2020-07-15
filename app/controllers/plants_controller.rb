@@ -3,7 +3,11 @@ class PlantsController < ApplicationController
   before_action :authenticate_user
   
   def index
-    plants = Plant.all
+    if current_user.admin?
+      plants = Plant.all
+    else
+      plants = current_user.plants
+    end
     render json: {plants: plants}, status: 200
   end
 
