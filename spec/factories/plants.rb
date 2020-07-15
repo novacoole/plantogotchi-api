@@ -8,9 +8,8 @@ FactoryBot.define do
     alive { true }
     growth_stage { 1 }
 
-    before(:create) do |plant|
-      breed = FactoryBot.create(:breed)
-      user = FactoryBot.create(:user)
+    before(:build) do |plant|
+      create(:breed)
     end
   end
 end
