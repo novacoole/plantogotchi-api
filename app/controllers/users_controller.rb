@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   
   def update 
-    if @user.update(plant_params)
+    if @user.update(user_params)
       render json: "user updated", status: 200
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity

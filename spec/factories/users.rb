@@ -11,4 +11,8 @@ FactoryBot.define do
     location { "Location" }
     admin { false }
   end
+
+  trait :invalid do
+    username {nil}
+  end
 end
