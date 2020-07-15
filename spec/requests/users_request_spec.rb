@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
 
-  describe "GET /index" do
+  describe "GET /users" do
     before(:example) do
-        @user_count = User.all.length
         @first_user = create(:user)
         @last_user = create(:user)
         get '/users', headers: authenticated_header
