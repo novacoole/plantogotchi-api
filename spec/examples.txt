@@ -1,24 +1,25 @@
-example_id                          | status  | run_time        |
------------------------------------ | ------- | --------------- |
-./spec/models/breed_spec.rb[1:1]    | pending | 0.00001 seconds |
-./spec/models/plant_spec.rb[1:1:1]  | failed  | 0.01083 seconds |
-./spec/models/plant_spec.rb[1:1:2]  | passed  | 0.00395 seconds |
-./spec/models/plant_spec.rb[1:1:3]  | passed  | 0.00334 seconds |
-./spec/models/plant_spec.rb[1:1:4]  | passed  | 0.00335 seconds |
-./spec/models/plant_spec.rb[1:1:5]  | passed  | 0.00269 seconds |
-./spec/models/plant_spec.rb[1:1:6]  | passed  | 0.00261 seconds |
-./spec/models/plant_spec.rb[1:1:7]  | passed  | 0.02022 seconds |
-./spec/models/plant_spec.rb[1:1:8]  | passed  | 0.00282 seconds |
-./spec/models/plant_spec.rb[1:1:9]  | passed  | 0.00239 seconds |
-./spec/models/plant_spec.rb[1:1:10] | passed  | 0.00522 seconds |
-./spec/models/plant_spec.rb[1:1:11] | passed  | 0.0051 seconds  |
-./spec/models/plant_spec.rb[1:1:12] | failed  | 0.0009 seconds  |
-./spec/models/plant_spec.rb[1:1:13] | passed  | 0.00509 seconds |
-./spec/models/user_spec.rb[1:1:1]   | passed  | 0.00137 seconds |
-./spec/models/user_spec.rb[1:1:2]   | passed  | 0.00407 seconds |
-./spec/models/user_spec.rb[1:1:3]   | passed  | 0.00391 seconds |
-./spec/models/user_spec.rb[1:1:4]   | passed  | 0.00376 seconds |
-./spec/models/user_spec.rb[1:1:5]   | passed  | 0.00239 seconds |
-./spec/models/user_spec.rb[1:1:6]   | passed  | 0.0089 seconds  |
-./spec/models/user_spec.rb[1:1:7]   | passed  | 0.00167 seconds |
-./spec/models/user_spec.rb[1:1:8]   | passed  | 0.00156 seconds |
+example_id                         | status | run_time        |
+---------------------------------- | ------ | --------------- |
+./spec/models/breed_spec.rb[1:1:1] | passed | 0.00083 seconds |
+./spec/models/breed_spec.rb[1:1:2] | passed | 0.00256 seconds |
+./spec/models/breed_spec.rb[1:1:3] | passed | 0.01812 seconds |
+./spec/models/breed_spec.rb[1:1:4] | passed | 0.0021 seconds  |
+./spec/models/breed_spec.rb[1:1:5] | passed | 0.00157 seconds |
+./spec/models/breed_spec.rb[1:1:6] | passed | 0.0036 seconds  |
+./spec/models/plant_spec.rb[1:1:1] | failed | 0.00519 seconds |
+./spec/models/plant_spec.rb[1:1:2] | passed | 0.0041 seconds  |
+./spec/models/plant_spec.rb[1:1:3] | passed | 0.00506 seconds |
+./spec/models/plant_spec.rb[1:1:4] | passed | 0.00314 seconds |
+./spec/models/plant_spec.rb[1:1:5] | passed | 0.01015 seconds |
+./spec/models/plant_spec.rb[1:1:6] | passed | 0.00252 seconds |
+./spec/models/plant_spec.rb[1:1:7] | passed | 0.0031 seconds  |
+./spec/models/plant_spec.rb[1:1:8] | passed | 0.00462 seconds |
+./spec/models/plant_spec.rb[1:1:9] | passed | 0.03586 seconds |
+./spec/models/user_spec.rb[1:1:1]  | passed | 0.00918 seconds |
+./spec/models/user_spec.rb[1:1:2]  | passed | 0.00385 seconds |
+./spec/models/user_spec.rb[1:1:3]  | passed | 0.01045 seconds |
+./spec/models/user_spec.rb[1:1:4]  | passed | 0.00417 seconds |
+./spec/models/user_spec.rb[1:1:5]  | passed | 0.00254 seconds |
+./spec/models/user_spec.rb[1:1:6]  | passed | 0.00245 seconds |
+./spec/models/user_spec.rb[1:1:7]  | passed | 0.003 seconds   |
+./spec/models/user_spec.rb[1:1:8]  | passed | 0.00226 seconds |

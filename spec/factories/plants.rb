@@ -3,13 +3,10 @@ FactoryBot.define do
     name { "mybaby" }
     water_level { 100 }
     food_level { 100 }
-    breeds_id { 1 }
-    users_id { 1 }
+    association :breed 
+    association :user 
     alive { true }
     growth_stage { 1 }
-
-    before(:build) do |plant|
-      create(:breed)
-    end
   end
+
 end
