@@ -6,7 +6,7 @@ FactoryBot.define do
     sequence :email do |n|
       "email@email#{n}.com"
     end
-    password { "validpassword" }
+    password { "secure_Password!" }
     bio { "This is an example bio statement." }
     location { "Location" }
     admin { false }

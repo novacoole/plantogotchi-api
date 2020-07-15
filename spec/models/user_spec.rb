@@ -9,7 +9,6 @@ RSpec.describe User, type: :model do
     end
 
     it { expect(subject).to validate_presence_of(:username) }
-    it { expect(subject).to validate_presence_of(:password) }
     it { expect(subject).to validate_presence_of(:email) }
     it { expect(subject).to validate_length_of(:username).is_at_least(3).on(:create) }
 
