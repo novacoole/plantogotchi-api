@@ -13,7 +13,7 @@ class PlantsController < ApplicationController
   def create
     plant = Plant.new(plant_params)
     if plant.save
-      render json: {}, status: :created
+      render json: "plant created", status: :created
     else
       render json: { errors: plant.errors.full_messages }, status: :unprocessable_entity
     end
