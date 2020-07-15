@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Plants", type: :request do
 
-  describe "GET /index" do
+  describe "GET /plants" do
     before(:example) do
       @first_plant = create(:plant)
       @last_plant = create(:plant)
-      get '/plants'
+      get '/plants', headers: authenticated_header
       @json_response = JSON.parse(response.body)
     end
 
@@ -35,8 +35,10 @@ RSpec.describe "Plants", type: :request do
   describe 'POST #create' do
     context 'when the plant is valid' do
       before(:example) do
-        @plant_params = FactoryBot.create(:plant).attributes.except('id', 'created_at', 'updated_at')
-        post '/plants', params: { plant: @plant_params }
+        @plant_params = attributes_for(:plant)
+        @plant_params[:breed_id] = create(:breed).id
+        post '/plants', params: { plant: @plant_params }, headers: authenticated_header
+      
       end
 
       it 'returns http created' do
@@ -44,16 +46,15 @@ RSpec.describe "Plants", type: :request do
       end
 
       it 'saves the Plant to the database' do
-        expect(Plant.last.name).to eq(@plant_params["name"])
+        expect(Plant.last.name).to eq(@plant_params[:name])
       end
     end
 
     context 'when the plant has invalid attributes' do
       before(:example) do
-        plant = FactoryBot.create(:plant).attributes.except('id', 'created_at', 'updated_at')
-        plant[:name] = nil
-        @plant_params = plant
-        post '/plants', params: { plant: @plant_params }
+        @plant_params = attributes_for(:plant, :invalid)
+        @plant_params[:breed_id] = create(:breed).id
+        post '/plants', params: { plant: @plant_params }, headers: authenticated_header
         @json_response = JSON.parse(response.body)
       end
   
@@ -73,11 +74,10 @@ RSpec.describe "Plants", type: :request do
   end
 
 
-  describe "GET /index/:id #show" do
+  describe "GET /plants/:id #show" do
     before(:example) do
       @plant = create(:plant)
-      @plant_params = FactoryBot.create(:plant).attributes.except('id', 'created_at', 'updated_at')
-      get "/plants/#{@plant.id}"
+      get "/plants/#{@plant.id}", headers: authenticated_header
       @json_response = JSON.parse(response.body)
     end
 
@@ -99,11 +99,12 @@ RSpec.describe "Plants", type: :request do
     end
   end
 
-  describe "PUT /index/:id #update" do
+  describe "PUT /plants/:id #update" do
     before(:example) do
       @plant = create(:plant)
-      @plant_params = FactoryBot.create(:plant).attributes.except('id', 'created_at', 'updated_at')
-      put "/plants/#{@plant.id}", params: { plant: @plant_params }
+      @plant_params = attributes_for(:plant)
+      @plant_params[:breed_id] = create(:breed).id
+      put "/plants/#{@plant.id}", params: { plant: @plant_params }, headers: authenticated_header
     end
 
     it "returns http success" do
@@ -111,15 +112,15 @@ RSpec.describe "Plants", type: :request do
     end
 
     it "updated plant has correct attributes" do
-      expect(Plant.find(@plant.id).name).to eq(@plant_params["name"])
+      expect(Plant.find(@plant.id).name).to eq(@plant_params[:name])
     end
 
   end
 
-  describe "DELETE /index/:id #destroy" do
+  describe "DELETE /plants/:id #destroy" do
     before(:example) do
       @plant = create(:plant)
-      delete "/plants/#{@plant.id}"
+      delete "/plants/#{@plant.id}", headers: authenticated_header
     end
 
     it "returns http success" do
