@@ -5,7 +5,6 @@ RSpec.describe Plant, type: :model do
   
   context 'validations' do
     it 'has a valid factory' do
-      p attributes_for(:plant)
       expect(build(:plant)).to be_valid
     end
 

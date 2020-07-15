@@ -1,12 +1,18 @@
 FactoryBot.define do
   factory :plant do
-    name { "mybaby" }
+    sequence :name do |n| 
+      "mybaby#{n}"
+    end
     water_level { 100 }
     food_level { 100 }
-    association :breed 
-    association :user 
+    breed
+    user
     alive { true }
     growth_stage { 1 }
+
+    trait :invalid do
+      name {nil}
+    end
   end
 
 end
