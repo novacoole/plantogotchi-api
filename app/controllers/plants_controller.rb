@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :update, :destroy]
+  before_action :authenticate_user
   
   def index
     plants = Plant.all
