@@ -28,7 +28,8 @@ class UsersController < ApplicationController
     end 
   end
   
-  def destroy 
+  def destroy
+    @user.plants.each { |plant| plant.destroy } if @user.plants
     if @user.destroy
       render json: "user deleted", status: 200
     else
