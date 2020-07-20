@@ -12,7 +12,7 @@ class PlantsController < ApplicationController
   end
 
   def show
-    render json: @plant.includes(:breed), :include => {:breed => {:only => :name}}, status: 200
+    render json: @plant, :include => {:breed => {:only => :name}}, status: 200
   end
 
   def create
