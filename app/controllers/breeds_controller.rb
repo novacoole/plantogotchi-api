@@ -43,7 +43,7 @@ class BreedsController < ApplicationController
     end
   
     def breed_params
-      params.require(:breed).permit(:name, :description, :max_growth)
+      params.require(:breed).permit(:name, :description, :max_growth, :spritesheet)
     end
     
   end
