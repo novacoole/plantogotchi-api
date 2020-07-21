@@ -1,7 +1,7 @@
 class BreedSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
     
-  attributes :name, :description, :max_growth, :spritesheet
+  attributes :id, :name, :description, :max_growth, :spritesheet
   
   def spritesheet
     url_for(object.spritesheet) if object.spritesheet.attached?
