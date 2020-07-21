@@ -18,14 +18,6 @@ class ApplicationController < ActionController::API
     super(options, extra_options, &block)
   end
 
-  def default_url_options
-    if Rails.env.production?
-      Rails.application.routes.default_url_options = { host: "pure-oasis-63936.herokuapp.com/", protocol: 'https' }
-    elsif Rails.env.development?
-      Rails.application.routes.default_url_options = { host: 'localhost:3000', protocol: 'http' }
-    end
-  end
-
   private
 
   def json_response?(options)

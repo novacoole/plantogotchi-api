@@ -3,13 +3,8 @@ class BreedsController < ApplicationController
     before_action :authenticate_user
       
     def index
-      breeds = Breed.with_attached_spritesheet.all
-      # new_breeds = breeds.map do |breed|
-      #   breed["spritesheet"] = url_for(breed.spritesheet)
-      # # end
-      # newbreed = BreedSerializer.new(breeds)
-      render json: {breeds: breeds}, status: 200
-      # render json: new_breeds.to_json
+      @breeds = Breed.all
+      render json: @breeds, status: 200
     end
   
     def show
