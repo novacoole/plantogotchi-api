@@ -8,7 +8,7 @@ class PlantsController < ApplicationController
     else
       plants = current_user.plants.includes(:breed)
     end
-    render json: {plants: plants}, :include => {:breed => {:only => :name}}, status: 200
+    render json: plants, :include => {:breed => {:only => :name}}, status: 200
   end
 
   def show
