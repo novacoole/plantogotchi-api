@@ -15,11 +15,11 @@ RSpec.describe "Plants", type: :request do
     end
   
     it 'JSON response contains the correct number of entries' do
-      expect(@json_response['plants'].count).to eq(2)
+      expect(@json_response.count).to eq(2)
     end
 
     it 'JSON response body contains expected attributes' do
-      expect(@json_response['plants'][0]).to include({
+      expect(@json_response[0]).to include({
         'id' => @first_plant.id,
         'name' => @first_plant.name,
         'water_level' => @first_plant.water_level,
