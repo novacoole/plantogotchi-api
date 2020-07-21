@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
     include Knock::Authenticable
+    include ::ActionController::Serialization
 
   # here we refresh the JWT to a new 24h token
   def new_jwt
@@ -15,6 +16,14 @@ class ApplicationController < ActionController::API
     end
     # if the user isn't logged in behave like the standard render
     super(options, extra_options, &block)
+  end
+
+  def default_url_options
+    if Rails.env.production?
+      Rails.application.routes.default_url_options = { host: "pure-oasis-63936.herokuapp.com/", protocol: 'https' }
+    elsif Rails.env.development?
+      Rails.application.routes.default_url_options = { host: 'localhost:3000', protocol: 'http' }
+    end
   end
 
   private
