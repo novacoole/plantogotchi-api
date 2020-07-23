@@ -14,8 +14,8 @@ RSpec.describe Plant, type: :model do
     it { expect(subject).to validate_presence_of(:alive) }
     it { expect(subject).to validate_presence_of(:growth_stage) }
     it { expect(subject).to validate_length_of(:name).is_at_least(3).on(:create) }
-    it { expect(subject).to validate_numericality_of(:water_level).is_greater_than(-1).is_less_than(101) }
-    it { expect(subject).to validate_numericality_of(:food_level).is_greater_than(-1).is_less_than(101) }
+    it { expect(subject).to validate_numericality_of(:water_level).is_greater_than(-1).is_less_than(151) }
+    it { expect(subject).to validate_numericality_of(:food_level).is_greater_than(-1).is_less_than(151) }
     it { expect(subject).to validate_numericality_of(:growth_stage).is_greater_than(0).is_less_than(26) }
 
     context 'associations' do
