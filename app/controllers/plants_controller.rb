@@ -25,8 +25,24 @@ class PlantsController < ApplicationController
     end
   end
 
-  def update 
+  def update
+    if plant_params[:water_level]
+      old_level = @plant.water_level 
+      new_level = plant_params[:water_level]
+      event_type = :water
+      amount = new_level - old_level
+    elsif plant_params[:growth_stage]
+      if plant_params[:growth_stage] == @plant.breed.max_growth
+        event_type = :finished
+      else 
+        event_type = :growth
+      end
+      old_growth = @plant.growth_stage
+      new_growth = plant_params[:growth_stage]
+      amount = new_growth - old_growth
+    end
     if @plant.update(plant_params)
+      Event.create(plant_id: @plant.id, amount: amount, event_type: event_type)
       render json: "plant updated", status: 200
     else
       render json: { errors: @plant.errors.full_messages }, status: :unprocessable_entity
