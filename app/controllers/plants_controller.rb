@@ -41,6 +41,8 @@ class PlantsController < ApplicationController
       old_growth = @plant.growth_stage
       new_growth = plant_params[:growth_stage]
       amount = new_growth - old_growth
+    elsif plant_params[:alive]
+      event_type = :died
     end
     if @plant.update(plant_params)
       Event.create(plant_id: @plant.id, amount: amount, event_type: event_type)
