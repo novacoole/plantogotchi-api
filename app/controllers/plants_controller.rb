@@ -20,6 +20,7 @@ class PlantsController < ApplicationController
     plant.user_id = current_user.id
     if plant.save
       render json: "plant created", status: :created
+      Event.create(plant_id: plant.id, event_type: :born)
     else
       render json: { errors: plant.errors.full_messages }, status: :unprocessable_entity
     end
