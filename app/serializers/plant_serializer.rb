@@ -1,5 +1,5 @@
 class PlantSerializer < ActiveModel::Serializer
-  attributes :name, :water_level, :food_level, :breed_id, :user_id, :alive, :growth_stage, :created_at, :updated_at, :breed, :events
+  attributes :id, :name, :water_level, :food_level, :breed_id, :user_id, :alive, :growth_stage, :created_at, :updated_at, :breed, :events
   
   def events
     object.events.last(10)
