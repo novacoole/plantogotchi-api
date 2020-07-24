@@ -4,9 +4,9 @@ class PlantsController < ApplicationController
   
   def index
     if current_user.admin?
-      plants = Plant.all.includes(:breed)
+      plants = Plant.all.includes(:breed).order("created_at DESC")
     else
-      plants = current_user.plants.includes(:breed)
+      plants = current_user.plants.includes(:breed).order("created_at DESC")
     end
     render json: plants, :include => {:breed => {:only => :name}}, status: 200
   end
