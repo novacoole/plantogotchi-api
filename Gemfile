@@ -38,6 +38,7 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'simplecov'
 end
 
 group :development do
