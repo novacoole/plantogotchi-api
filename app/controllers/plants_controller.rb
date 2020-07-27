@@ -29,7 +29,7 @@ class PlantsController < ApplicationController
   def update
     if plant_params[:water_level]
       old_level = @plant.water_level 
-      new_level = plant_params[:water_level]
+      new_level = plant_params[:water_level].to_i
       event_type = :water
       amount = new_level - old_level
     elsif plant_params[:growth_stage]

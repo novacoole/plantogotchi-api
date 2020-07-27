@@ -15,4 +15,5 @@ FactoryBot.define do
   trait :invalid do
     username {nil}
   end
+
 end

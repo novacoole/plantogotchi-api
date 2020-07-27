@@ -6,6 +6,12 @@ module AuthenticationHelpers
 
         { 'Authorization': "Bearer #{token}" }
     end
+
+    def authenticated_header_specific(id)
+        token = Knock::AuthToken.new(payload: {sub: id}).token
+
+        { 'Authorization': "Bearer #{token}" }
+    end
 end
 
 RSpec.configure do |config|
