@@ -1,6 +1,7 @@
 class BreedsController < ApplicationController
     before_action :set_breed, only: [:show, :update, :destroy]
     before_action :authenticate_user
+    before_action :admin_check
       
     def index
       @breeds = Breed.all
@@ -37,6 +38,12 @@ class BreedsController < ApplicationController
     end
   
     private
+
+    def admin_check
+      unless current_user.admin?
+        render json: 'Not authorized to access breeds endpoint', status: :unauthorized
+      end
+    end
   
     def set_breed
       @breed = Breed.find(params[:id])

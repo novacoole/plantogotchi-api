@@ -33,16 +33,17 @@ class PlantsController < ApplicationController
       event_type = :water
       amount = new_level - old_level
     elsif plant_params[:growth_stage]
-      if plant_params[:growth_stage] == @plant.breed.max_growth
+      if plant_params[:growth_stage].to_i == @plant.breed.max_growth
         event_type = :finished
       else 
         event_type = :growth
       end
       old_growth = @plant.growth_stage
-      new_growth = plant_params[:growth_stage]
+      new_growth = plant_params[:growth_stage].to_i
       amount = new_growth - old_growth
     elsif plant_params[:alive]
       event_type = :died
+      amount = 0
     end
     if @plant.update(plant_params)
       Event.create(plant_id: @plant.id, amount: amount, event_type: event_type)
@@ -64,6 +65,9 @@ class PlantsController < ApplicationController
 
   def set_plant
     @plant = Plant.find(params[:id])
+    unless @plant.user_id == current_user.id || current_user.admin?
+      render json: 'Not authorized to interact with this plant', status: :unauthorized
+    end
   end
 
   def plant_params
