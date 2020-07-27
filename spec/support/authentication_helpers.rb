@@ -1,15 +1,18 @@
 module AuthenticationHelpers
     def authenticated_header
         user = create(:user)
-
         token = Knock::AuthToken.new(payload: {sub: user.id}).token
+        { 'Authorization': "Bearer #{token}" }
+    end
 
+    def admin_authenticated_header
+        user = create(:user, :admin)
+        token = Knock::AuthToken.new(payload: {sub: user.id}).token
         { 'Authorization': "Bearer #{token}" }
     end
 
     def authenticated_header_specific(id)
         token = Knock::AuthToken.new(payload: {sub: id}).token
-
         { 'Authorization': "Bearer #{token}" }
     end
 end
