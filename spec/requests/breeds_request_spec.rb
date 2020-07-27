@@ -15,11 +15,11 @@ RSpec.describe "breeds", type: :request do
     end
   
     it 'JSON response contains the correct number of entries' do
-      expect(@json_response['breeds'].count).to eq(2)
+      expect(@json_response.count).to eq(2)
     end
 
     it 'JSON response body contains expected attributes' do
-      expect(@json_response['breeds'][0]).to include({
+      expect(@json_response[0]).to include({
         'name' => @first_breed.name,
         'description' => @first_breed.description,
         'max_growth' => @first_breed.max_growth,
@@ -56,7 +56,6 @@ RSpec.describe "breeds", type: :request do
       end
   
       it 'returns the correct number of errors' do
-        puts @json_response['errors']
         expect(@json_response['errors'].count).to eq(3)
       end
   

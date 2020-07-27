@@ -6,7 +6,7 @@ RSpec.describe "Users", type: :request do
     before(:example) do
         @first_user = create(:user)
         @last_user = create(:user)
-        get '/users', headers: authenticated_header
+        get '/users', headers: authenticated_header_specific(@first_user.id)
         @json_response = JSON.parse(response.body)
     end
 
@@ -15,7 +15,7 @@ RSpec.describe "Users", type: :request do
     end
   
     it 'JSON response contains the correct number of entries' do
-      expect(@json_response['users'].count).to eq(3)
+      expect(@json_response['users'].count).to eq(2)
     end
 
     it 'JSON response body contains expected attributes' do
@@ -71,10 +71,10 @@ RSpec.describe "Users", type: :request do
   end
 
 
-  describe "GET /users/:id #show" do
+  describe "GET /myaccount #show" do
     before(:example) do
       @user = create(:user)
-      get "/users/#{@user.id}", headers: authenticated_header
+      get "/myaccount/", headers: authenticated_header_specific(@user.id)
       @json_response = JSON.parse(response.body)
     end
 
@@ -95,11 +95,11 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "PUT /users/:id #update" do
+  describe "PUT /updateuser #update" do
     before(:example) do
       @user = create(:user)
       @user_params = attributes_for(:user)
-      put "/users/#{@user.id}", params: { user: @user_params }, headers: authenticated_header
+      put "/updateuser", params: { user: @user_params }, headers: authenticated_header_specific(@user.id)
     end
 
     it "returns http success" do

@@ -4,9 +4,10 @@ RSpec.describe "Plants", type: :request do
 
   describe "GET /plants" do
     before(:example) do
-      @first_plant = create(:plant)
-      @last_plant = create(:plant)
-      get '/plants', headers: authenticated_header
+      @user = create(:user)
+      @first_plant = create(:plant, user_id: @user.id)
+      @last_plant = create(:plant, user_id: @user.id)
+      get '/plants', headers: authenticated_header_specific(@user.id)
       @json_response = JSON.parse(response.body)
     end
 
@@ -19,12 +20,11 @@ RSpec.describe "Plants", type: :request do
     end
 
     it 'JSON response body contains expected attributes' do
-      expect(@json_response[0]).to include({
+      expect(@json_response[1]).to include({
         'id' => @first_plant.id,
         'name' => @first_plant.name,
         'water_level' => @first_plant.water_level,
         'food_level' => @first_plant.food_level,
-        'breed_id' => @first_plant.breed_id,
         'user_id' => @first_plant.user_id,
         'alive' => @first_plant.alive,
         'growth_stage' => @first_plant.growth_stage,
@@ -102,8 +102,7 @@ RSpec.describe "Plants", type: :request do
   describe "PUT /plants/:id #update" do
     before(:example) do
       @plant = create(:plant)
-      @plant_params = attributes_for(:plant)
-      @plant_params[:breed_id] = create(:breed).id
+      @plant_params = attributes_for(:plant, :update)
       put "/plants/#{@plant.id}", params: { plant: @plant_params }, headers: authenticated_header
     end
 
@@ -113,8 +112,8 @@ RSpec.describe "Plants", type: :request do
 
     it "updated plant has correct attributes" do
       expect(Plant.find(@plant.id).name).to eq(@plant_params[:name])
+      expect(Plant.find(@plant.id).water_level).to eq(60)
     end
-
   end
 
   describe "DELETE /plants/:id #destroy" do

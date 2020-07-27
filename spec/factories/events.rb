@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :event do
-    type { 1 }
+    event_type { 1 }
     amount { 1 }
+    plant
   end
 end
