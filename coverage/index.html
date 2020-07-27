@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-07-27T18:41:59+10:00">2020-07-27T18:41:59+10:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-07-27T19:38:05+10:00">2020-07-27T19:38:05+10:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  98.76%
+  98.74%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.84
+         4.85
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>644</b> relevant lines,
-    <span class="green"><b>636</b> lines covered</span> and
+    <b>637</b> relevant lines,
+    <span class="green"><b>629</b> lines covered</span> and
     <span class="red"><b>8</b> lines missed. </span>
     (<span class="green">
-  98.76%
+  98.74%
 </span>
 )
   </div>
@@ -83,30 +83,30 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#b87a271863935d8e2781affd346cd9e4ec0ac197" class="src_link" title="app/controllers/breeds_controller.rb">app/controllers/breeds_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">96.67 %</td>
-            <td class="cell--number">57</td>
-            <td class="cell--number">30</td>
+            <td class="green strong cell--number t-file__coverage">96.55 %</td>
+            <td class="cell--number">53</td>
             <td class="cell--number">29</td>
+            <td class="cell--number">28</td>
             <td class="cell--number">1</td>
-            <td class="cell--number">3.53</td>
+            <td class="cell--number">3.62</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#1a5c1699bf1739a05406442f436afb2334d1807e" class="src_link" title="app/controllers/plants_controller.rb">app/controllers/plants_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">93.75 %</td>
-            <td class="cell--number">76</td>
-            <td class="cell--number">48</td>
-            <td class="cell--number">45</td>
+            <td class="green strong cell--number t-file__coverage">92.86 %</td>
+            <td class="cell--number">68</td>
+            <td class="cell--number">42</td>
+            <td class="cell--number">39</td>
             <td class="cell--number">3</td>
-            <td class="cell--number">5.15</td>
+            <td class="cell--number">5.31</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#88acbd62aa68a25315f302f4e7e65b69b90cf1d4" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">93.94 %</td>
-            <td class="cell--number">61</td>
+            <td class="cell--number">60</td>
             <td class="cell--number">33</td>
             <td class="cell--number">31</td>
             <td class="cell--number">2</td>
@@ -183,7 +183,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#2a21d1e17b8b1bf8292810a0c346d25278fefcc5" class="src_link" title="app/serializers/plant_serializer.rb">app/serializers/plant_serializer.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">11</td>
+            <td class="cell--number">24</td>
             <td class="cell--number">6</td>
             <td class="cell--number">6</td>
             <td class="cell--number">0</td>
@@ -626,7 +626,7 @@
 
             
 
-            <code class="ruby">    include Knock::Authenticable</code>
+            <code class="ruby">  include Knock::Authenticable</code>
           </li>
         </div>
       
@@ -637,7 +637,7 @@
 
             
 
-            <code class="ruby">    include ::ActionController::Serialization</code>
+            <code class="ruby">  include ::ActionController::Serialization</code>
           </li>
         </div>
       
@@ -714,7 +714,7 @@
 
             
 
-            <code class="ruby">  def render(options=nil, extra_options={}, &amp;block)</code>
+            <code class="ruby">  def render(options = nil, extra_options = {}, &amp;block)</code>
           </li>
         </div>
       
@@ -948,7 +948,7 @@
     <h3>app/controllers/breeds_controller.rb</h3>
     <h4>
       <span class="green">
-  96.67%
+  96.55%
 </span>
 
       lines covered
@@ -957,8 +957,8 @@
     
 
     <div class="t-line-summary">
-      <b>30</b> relevant lines.
-      <span class="green"><b>29</b> lines covered</span> and
+      <b>29</b> relevant lines.
+      <span class="green"><b>28</b> lines covered</span> and
       <span class="red"><b>1</b> lines missed.</span>
     </div>
 
@@ -987,7 +987,7 @@
 
             
 
-            <code class="ruby">    before_action :set_breed, only: [:show, :update, :destroy]</code>
+            <code class="ruby">  before_action :set_breed, only: %i[show update destroy]</code>
           </li>
         </div>
       
@@ -998,7 +998,7 @@
 
             
 
-            <code class="ruby">    before_action :authenticate_user</code>
+            <code class="ruby">  before_action :authenticate_user</code>
           </li>
         </div>
       
@@ -1009,7 +1009,7 @@
 
             
 
-            <code class="ruby">    before_action :admin_check</code>
+            <code class="ruby">  before_action :admin_check</code>
           </li>
         </div>
       
@@ -1020,7 +1020,7 @@
 
             
 
-            <code class="ruby">      </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1031,7 +1031,7 @@
 
             
 
-            <code class="ruby">    def index</code>
+            <code class="ruby">  def index</code>
           </li>
         </div>
       
@@ -1042,7 +1042,7 @@
 
             
 
-            <code class="ruby">      @breeds = Breed.all</code>
+            <code class="ruby">    @breeds = Breed.all</code>
           </li>
         </div>
       
@@ -1053,7 +1053,7 @@
 
             
 
-            <code class="ruby">      render json: @breeds, status: 200</code>
+            <code class="ruby">    render json: @breeds, status: :ok</code>
           </li>
         </div>
       
@@ -1064,7 +1064,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1075,7 +1075,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1086,7 +1086,7 @@
 
             
 
-            <code class="ruby">    def show</code>
+            <code class="ruby">  def show</code>
           </li>
         </div>
       
@@ -1097,7 +1097,7 @@
 
             
 
-            <code class="ruby">      render json: @breed, status: 200</code>
+            <code class="ruby">    render json: @breed, status: :ok</code>
           </li>
         </div>
       
@@ -1108,7 +1108,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1119,7 +1119,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1130,7 +1130,7 @@
 
             
 
-            <code class="ruby">    def create</code>
+            <code class="ruby">  def create</code>
           </li>
         </div>
       
@@ -1141,7 +1141,7 @@
 
             
 
-            <code class="ruby">      breed = Breed.new(breed_params)</code>
+            <code class="ruby">    breed = Breed.new(breed_params)</code>
           </li>
         </div>
       
@@ -1152,7 +1152,7 @@
 
             
 
-            <code class="ruby">      if breed.save</code>
+            <code class="ruby">    if breed.save</code>
           </li>
         </div>
       
@@ -1163,7 +1163,7 @@
 
             
 
-            <code class="ruby">        render json: &quot;breed created&quot; , status: :created</code>
+            <code class="ruby">      render json: &#39;breed created&#39;, status: :created</code>
           </li>
         </div>
       
@@ -1174,7 +1174,7 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
@@ -1185,7 +1185,7 @@
 
             
 
-            <code class="ruby">        render json: { errors: breed.errors.full_messages }, status: :unprocessable_entity</code>
+            <code class="ruby">      render json: { errors: breed.errors.full_messages }, status: :unprocessable_entity</code>
           </li>
         </div>
       
@@ -1196,7 +1196,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1207,7 +1207,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1218,7 +1218,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1229,7 +1229,7 @@
 
             
 
-            <code class="ruby">    def update </code>
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
@@ -1240,7 +1240,7 @@
 
             
 
-            <code class="ruby">      if @breed.update(breed_params)</code>
+            <code class="ruby">    if @breed.update(breed_params)</code>
           </li>
         </div>
       
@@ -1251,7 +1251,7 @@
 
             
 
-            <code class="ruby">        render json: &quot;breed updated&quot;, status: 200</code>
+            <code class="ruby">      render json: &#39;breed updated&#39;, status: :ok</code>
           </li>
         </div>
       
@@ -1262,7 +1262,7 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
@@ -1273,7 +1273,7 @@
 
             
 
-            <code class="ruby">        render json: { errors: @breed.errors.full_messages }, status: :unprocessable_entity</code>
+            <code class="ruby">      render json: { errors: @breed.errors.full_messages }, status: :unprocessable_entity</code>
           </li>
         </div>
       
@@ -1284,7 +1284,7 @@
 
             
 
-            <code class="ruby">      end </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1295,7 +1295,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1306,7 +1306,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1317,7 +1317,7 @@
 
             
 
-            <code class="ruby">    def destroy </code>
+            <code class="ruby">  def destroy</code>
           </li>
         </div>
       
@@ -1328,7 +1328,7 @@
 
             
 
-            <code class="ruby">      if @breed.destroy</code>
+            <code class="ruby">    if @breed.destroy</code>
           </li>
         </div>
       
@@ -1339,7 +1339,7 @@
 
             
 
-            <code class="ruby">        render json: &quot;breed deleted&quot;, status: 200</code>
+            <code class="ruby">      render json: &#39;breed deleted&#39;, status: :ok</code>
           </li>
         </div>
       
@@ -1350,7 +1350,7 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
@@ -1361,7 +1361,7 @@
 
             
 
-            <code class="ruby">        render json: { errors: @breed.errors.full_messages }, status: :unprocessable_entity</code>
+            <code class="ruby">      render json: { errors: @breed.errors.full_messages }, status: :unprocessable_entity</code>
           </li>
         </div>
       
@@ -1372,7 +1372,7 @@
 
             
 
-            <code class="ruby">      end </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1383,7 +1383,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1394,7 +1394,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1405,7 +1405,7 @@
 
             
 
-            <code class="ruby">    private</code>
+            <code class="ruby">  private</code>
           </li>
         </div>
       
@@ -1427,7 +1427,7 @@
 
             
 
-            <code class="ruby">    def admin_check</code>
+            <code class="ruby">  def admin_check</code>
           </li>
         </div>
       
@@ -1438,144 +1438,12 @@
 
             
 
-            <code class="ruby">      unless current_user.admin?</code>
+            <code class="ruby">    render json: &#39;Not authorized to access breeds endpoint&#39;, status: :unauthorized if current_user.admin? == false</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="44">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        render json: &#39;Not authorized to access breeds endpoint&#39;, status: :unauthorized</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="47">
-            
-            
-
-            
-
-            <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def set_breed</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="12" data-linenumber="49">
-            <span class="hits">12</span>
-            
-
-            
-
-            <code class="ruby">      @breed = Breed.find(params[:id])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="51">
-            
-            
-
-            
-
-            <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def breed_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="13" data-linenumber="53">
-            <span class="hits">13</span>
-            
-
-            
-
-            <code class="ruby">      params.require(:breed).permit(:name, :description, :max_growth, :spritesheet)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
-            
-
-            <code class="ruby">    </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="44">
             
             
 
@@ -1586,13 +1454,101 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def set_breed</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="12" data-linenumber="47">
+            <span class="hits">12</span>
+            
+
+            
+
+            <code class="ruby">    @breed = Breed.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="50">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def breed_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="13" data-linenumber="51">
+            <span class="hits">13</span>
+            
+
+            
+
+            <code class="ruby">    params.require(:breed).permit(:name, :description, :max_growth, :spritesheet)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -1606,7 +1562,7 @@
     <h3>app/controllers/plants_controller.rb</h3>
     <h4>
       <span class="green">
-  93.75%
+  92.86%
 </span>
 
       lines covered
@@ -1615,8 +1571,8 @@
     
 
     <div class="t-line-summary">
-      <b>48</b> relevant lines.
-      <span class="green"><b>45</b> lines covered</span> and
+      <b>42</b> relevant lines.
+      <span class="green"><b>39</b> lines covered</span> and
       <span class="red"><b>3</b> lines missed.</span>
     </div>
 
@@ -1645,7 +1601,7 @@
 
             
 
-            <code class="ruby">  before_action :set_plant, only: [:show, :update, :destroy]</code>
+            <code class="ruby">  before_action :set_plant, only: %i[show update destroy]</code>
           </li>
         </div>
       
@@ -1667,7 +1623,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1700,7 +1656,7 @@
 
             
 
-            <code class="ruby">      plants = Plant.all.includes(:breed).order(&quot;created_at DESC&quot;)</code>
+            <code class="ruby">      plants = Plant.all.includes(:breed).order(&#39;created_at DESC&#39;)</code>
           </li>
         </div>
       
@@ -1722,7 +1678,7 @@
 
             
 
-            <code class="ruby">      plants = current_user.plants.includes(:breed).order(&quot;created_at DESC&quot;)</code>
+            <code class="ruby">      plants = current_user.plants.includes(:breed).order(&#39;created_at DESC&#39;)</code>
           </li>
         </div>
       
@@ -1744,7 +1700,7 @@
 
             
 
-            <code class="ruby">    render json: plants, :include =&gt; {:breed =&gt; {:only =&gt; :name}}, status: 200</code>
+            <code class="ruby">    render json: plants, include: { breed: { only: :name } }, status: :ok</code>
           </li>
         </div>
       
@@ -1788,7 +1744,7 @@
 
             
 
-            <code class="ruby">    render json: @plant, :include =&gt; {:breed =&gt; {:only =&gt; :name}}, status: 200</code>
+            <code class="ruby">    render json: @plant, include: { breed: { only: :name } }, status: :ok</code>
           </li>
         </div>
       
@@ -1865,7 +1821,7 @@
 
             
 
-            <code class="ruby">      render json: &quot;plant created&quot;, status: :created</code>
+            <code class="ruby">      render json: &#39;plant created&#39;, status: :created</code>
           </li>
         </div>
       
@@ -1964,7 +1920,7 @@
 
             
 
-            <code class="ruby">      old_level = @plant.water_level </code>
+            <code class="ruby">      event_type = :water</code>
           </li>
         </div>
       
@@ -1975,34 +1931,12 @@
 
             
 
-            <code class="ruby">      new_level = plant_params[:water_level].to_i</code>
+            <code class="ruby">      amount = plant_params[:water_level].to_i - @plant.water_level</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="33">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      event_type = :water</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="34">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      amount = new_level - old_level</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="9" data-linenumber="35">
+          <li class="covered" data-hits="9" data-linenumber="33">
             <span class="hits">9</span>
             
 
@@ -2013,95 +1947,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="36">
+          <li class="covered" data-hits="6" data-linenumber="34">
             <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">      if plant_params[:growth_stage].to_i == @plant.breed.max_growth</code>
+            <code class="ruby">      event_type = plant_params[:growth_stage].to_i == @plant.breed.max_growth ? :finished : :growth</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="37">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">        event_type = :finished</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
-            
-
-            <code class="ruby">      else </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="39">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">        event_type = :growth</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="6" data-linenumber="41">
+          <li class="covered" data-hits="6" data-linenumber="35">
             <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">      old_growth = @plant.growth_stage</code>
+            <code class="ruby">      amount = plant_params[:growth_stage].to_i - @plant.growth_stage</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="42">
-            <span class="hits">6</span>
-            
-
-            
-
-            <code class="ruby">      new_growth = plant_params[:growth_stage].to_i</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="6" data-linenumber="43">
-            <span class="hits">6</span>
-            
-
-            
-
-            <code class="ruby">      amount = new_growth - old_growth</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="44">
+          <li class="covered" data-hits="3" data-linenumber="36">
             <span class="hits">3</span>
             
 
@@ -2112,7 +1980,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="45">
+          <li class="covered" data-hits="3" data-linenumber="37">
             <span class="hits">3</span>
             
 
@@ -2123,7 +1991,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="46">
+          <li class="covered" data-hits="3" data-linenumber="38">
             <span class="hits">3</span>
             
 
@@ -2134,7 +2002,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="47">
+          <li class="never" data-hits="" data-linenumber="39">
             
             
 
@@ -2145,7 +2013,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="48">
+          <li class="covered" data-hits="12" data-linenumber="40">
             <span class="hits">12</span>
             
 
@@ -2156,7 +2024,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="49">
+          <li class="covered" data-hits="12" data-linenumber="41">
             <span class="hits">12</span>
             
 
@@ -2167,13 +2035,101 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="50">
+          <li class="covered" data-hits="12" data-linenumber="42">
             <span class="hits">12</span>
             
 
             
 
-            <code class="ruby">      render json: &quot;plant updated&quot;, status: 200</code>
+            <code class="ruby">      render json: &#39;plant updated&#39;, status: :ok</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">      render json: { errors: @plant.errors.full_messages }, status: :unprocessable_entity</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="48">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="49">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    if @plant.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="50">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      render json: &#39;plant deleted&#39;, status: :ok</code>
           </li>
         </div>
       
@@ -2206,7 +2162,7 @@
 
             
 
-            <code class="ruby">    end </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -2239,100 +2195,12 @@
 
             
 
-            <code class="ruby">  def destroy </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="57">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    if @plant.destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="58">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      render json: &quot;plant deleted&quot;, status: 200</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="60">
-            
-            
-
-            
-
-            <code class="ruby">      render json: { errors: @plant.errors.full_messages }, status: :unprocessable_entity</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
-            <code class="ruby">    end </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">  private</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
+          <li class="never" data-hits="" data-linenumber="57">
             
             
 
@@ -2343,7 +2211,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
+          <li class="covered" data-hits="1" data-linenumber="58">
             <span class="hits">1</span>
             
 
@@ -2354,7 +2222,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="17" data-linenumber="67">
+          <li class="covered" data-hits="17" data-linenumber="59">
             <span class="hits">17</span>
             
 
@@ -2365,7 +2233,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="17" data-linenumber="68">
+          <li class="covered" data-hits="17" data-linenumber="60">
             <span class="hits">17</span>
             
 
@@ -2376,7 +2244,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="69">
+          <li class="covered" data-hits="1" data-linenumber="61">
             <span class="hits">1</span>
             
 
@@ -2387,7 +2255,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="62">
             
             
 
@@ -2398,7 +2266,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -2409,7 +2277,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="64">
             
             
 
@@ -2420,7 +2288,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="73">
+          <li class="covered" data-hits="1" data-linenumber="65">
             <span class="hits">1</span>
             
 
@@ -2431,7 +2299,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="56" data-linenumber="74">
+          <li class="covered" data-hits="56" data-linenumber="66">
             <span class="hits">56</span>
             
 
@@ -2442,7 +2310,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="75">
+          <li class="never" data-hits="" data-linenumber="67">
             
             
 
@@ -2453,7 +2321,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="76">
+          <li class="never" data-hits="" data-linenumber="68">
             
             
 
@@ -2512,7 +2380,7 @@
 
             
 
-            <code class="ruby">  before_action :set_user, only: [:update, :destroy]</code>
+            <code class="ruby">  before_action :set_user, only: %i[update destroy]</code>
           </li>
         </div>
       
@@ -2523,7 +2391,7 @@
 
             
 
-            <code class="ruby">  before_action :authenticate_user, except: [:create]</code>
+            <code class="ruby">  before_action :authenticate_user, except: %i[create]</code>
           </li>
         </div>
       
@@ -2534,7 +2402,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2578,7 +2446,7 @@
 
             
 
-            <code class="ruby">      render json: {users: users}, status: 200</code>
+            <code class="ruby">      render json: { users: users }, status: :ok</code>
           </li>
         </div>
       
@@ -2655,7 +2523,7 @@
 
             
 
-            <code class="ruby">    render json: current_user, status: 200</code>
+            <code class="ruby">    render json: current_user, status: :ok</code>
           </li>
         </div>
       
@@ -2677,7 +2545,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2721,7 +2589,7 @@
 
             
 
-            <code class="ruby">      render json: &quot;user created&quot; , status: :created</code>
+            <code class="ruby">      render json: &#39;user created&#39;, status: :created</code>
           </li>
         </div>
       
@@ -2776,7 +2644,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2787,7 +2655,7 @@
 
             
 
-            <code class="ruby">  def update </code>
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
@@ -2809,7 +2677,7 @@
 
             
 
-            <code class="ruby">      render json: &quot;user updated&quot;, status: 200</code>
+            <code class="ruby">      render json: &#39;user updated&#39;, status: :ok</code>
           </li>
         </div>
       
@@ -2842,7 +2710,7 @@
 
             
 
-            <code class="ruby">    end </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -2864,7 +2732,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2886,7 +2754,7 @@
 
             
 
-            <code class="ruby">    @user.plants.each { |plant| plant.destroy } if @user.plants</code>
+            <code class="ruby">    @user.plants.each(&amp;:destroy) if @user.plants</code>
           </li>
         </div>
       
@@ -2908,7 +2776,7 @@
 
             
 
-            <code class="ruby">      render json: &quot;user deleted&quot;, status: 200</code>
+            <code class="ruby">      render json: &#39;user deleted&#39;, status: :ok</code>
           </li>
         </div>
       
@@ -2941,7 +2809,7 @@
 
             
 
-            <code class="ruby">    end </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -3150,17 +3018,6 @@
 
             
 
-            <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
             <code class="ruby">end</code>
           </li>
         </div>
@@ -3278,7 +3135,7 @@
 
             
 
-            <code class="ruby">    has_many :plants</code>
+            <code class="ruby">  has_many :plants</code>
           </li>
         </div>
       
@@ -3289,7 +3146,7 @@
 
             
 
-            <code class="ruby">    validates :name, :description, :max_growth, presence: true</code>
+            <code class="ruby">  validates :name, :description, :max_growth, presence: true</code>
           </li>
         </div>
       
@@ -3300,7 +3157,7 @@
 
             
 
-            <code class="ruby">    validates :max_growth, numericality: { greater_than: 10 }</code>
+            <code class="ruby">  validates :max_growth, numericality: { greater_than: 10 }</code>
           </li>
         </div>
       
@@ -3311,7 +3168,7 @@
 
             
 
-            <code class="ruby">    validates :description, length: { minimum: 20 }</code>
+            <code class="ruby">  validates :description, length: { minimum: 20 }</code>
           </li>
         </div>
       
@@ -3322,7 +3179,7 @@
 
             
 
-            <code class="ruby">    has_one_attached :spritesheet</code>
+            <code class="ruby">  has_one_attached :spritesheet</code>
           </li>
         </div>
       
@@ -3386,7 +3243,7 @@
 
             
 
-            <code class="ruby">    validates :event_type, :amount, presence: true  </code>
+            <code class="ruby">  validates :event_type, :amount, presence: true</code>
           </li>
         </div>
       
@@ -3397,7 +3254,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -3408,7 +3265,7 @@
 
             
 
-            <code class="ruby">    enum event_type: [ :born, :water, :food, :growth, :finished, :died ]</code>
+            <code class="ruby">  enum event_type: { born: 0, water: 1, food: 2, growth: 3, finished: 4, died: 5 }</code>
           </li>
         </div>
       
@@ -3430,7 +3287,7 @@
 
             
 
-            <code class="ruby">    belongs_to :plant</code>
+            <code class="ruby">  belongs_to :plant</code>
           </li>
         </div>
       
@@ -3494,7 +3351,7 @@
 
             
 
-            <code class="ruby">  validates :name, :water_level, :food_level, :growth_stage, presence: true  </code>
+            <code class="ruby">  validates :name, :water_level, :food_level, :growth_stage, presence: true</code>
           </li>
         </div>
       
@@ -3657,7 +3514,7 @@
 
             
 
-            <code class="ruby">    validates :username, :email, presence: true  </code>
+            <code class="ruby">  validates :username, :email, presence: true</code>
           </li>
         </div>
       
@@ -3668,7 +3525,7 @@
 
             
 
-            <code class="ruby">    validates :username, uniqueness: true, length: { minimum: 3 }</code>
+            <code class="ruby">  validates :username, uniqueness: true, length: { minimum: 3 }</code>
           </li>
         </div>
       
@@ -3679,7 +3536,7 @@
 
             
 
-            <code class="ruby">    has_secure_password</code>
+            <code class="ruby">  has_secure_password</code>
           </li>
         </div>
       
@@ -3690,7 +3547,7 @@
 
             
 
-            <code class="ruby">    validates :email, email: true, uniqueness: true</code>
+            <code class="ruby">  validates :email, email: true, uniqueness: true</code>
           </li>
         </div>
       
@@ -3712,7 +3569,7 @@
 
             
 
-            <code class="ruby">    has_many :plants</code>
+            <code class="ruby">  has_many :plants</code>
           </li>
         </div>
       
@@ -3787,7 +3644,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -3809,7 +3666,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -3906,7 +3763,7 @@
 
             
 
-            <code class="ruby">  attributes :id, :name, :water_level, :food_level, :breed_id, :user_id, :alive, :growth_stage, :created_at, :updated_at, :breed, :events</code>
+            <code class="ruby">  attributes %i[</code>
           </li>
         </div>
       
@@ -3917,29 +3774,29 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby">    id</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="4">
+            
             
 
             
 
-            <code class="ruby">  def events</code>
+            <code class="ruby">    name</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="5">
-            <span class="hits">8</span>
+          <li class="never" data-hits="" data-linenumber="5">
+            
             
 
             
 
-            <code class="ruby">    object.events.last(10)</code>
+            <code class="ruby">    water_level</code>
           </li>
         </div>
       
@@ -3950,7 +3807,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    food_level</code>
           </li>
         </div>
       
@@ -3961,29 +3818,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    breed_id</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="8">
+            
             
 
             
 
-            <code class="ruby">  def breed</code>
+            <code class="ruby">    user_id</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="9">
-            <span class="hits">8</span>
+          <li class="never" data-hits="" data-linenumber="9">
+            
             
 
             
 
-            <code class="ruby">    BreedSerializer.new(object.breed)</code>
+            <code class="ruby">    alive</code>
           </li>
         </div>
       
@@ -3994,12 +3851,155 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    growth_stage</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+
+            <code class="ruby">    created_at</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="12">
+            
+            
+
+            
+
+            <code class="ruby">    updated_at</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby">    breed</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
+            
+            
+
+            
+
+            <code class="ruby">    events</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="15">
+            
+            
+
+            
+
+            <code class="ruby">  ]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="17">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def events</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="18">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">    object.events.last(10)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def breed</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="22">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">    BreedSerializer.new(object.breed)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
             
             
 
@@ -15572,7 +15572,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    </code>
           </li>
         </div>
       

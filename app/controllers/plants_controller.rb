@@ -1,25 +1,25 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: [:show, :update, :destroy]
+  before_action :set_plant, only: %i[show update destroy]
   before_action :authenticate_user
-  
+
   def index
     if current_user.admin?
-      plants = Plant.all.includes(:breed).order("created_at DESC")
+      plants = Plant.all.includes(:breed).order('created_at DESC')
     else
-      plants = current_user.plants.includes(:breed).order("created_at DESC")
+      plants = current_user.plants.includes(:breed).order('created_at DESC')
     end
-    render json: plants, :include => {:breed => {:only => :name}}, status: 200
+    render json: plants, include: { breed: { only: :name } }, status: :ok
   end
 
   def show
-    render json: @plant, :include => {:breed => {:only => :name}}, status: 200
+    render json: @plant, include: { breed: { only: :name } }, status: :ok
   end
 
   def create
     plant = Plant.new(plant_params)
     plant.user_id = current_user.id
     if plant.save
-      render json: "plant created", status: :created
+      render json: 'plant created', status: :created
       Event.create(plant_id: plant.id, event_type: :born)
     else
       render json: { errors: plant.errors.full_messages }, status: :unprocessable_entity
@@ -28,37 +28,29 @@ class PlantsController < ApplicationController
 
   def update
     if plant_params[:water_level]
-      old_level = @plant.water_level 
-      new_level = plant_params[:water_level].to_i
       event_type = :water
-      amount = new_level - old_level
+      amount = plant_params[:water_level].to_i - @plant.water_level
     elsif plant_params[:growth_stage]
-      if plant_params[:growth_stage].to_i == @plant.breed.max_growth
-        event_type = :finished
-      else 
-        event_type = :growth
-      end
-      old_growth = @plant.growth_stage
-      new_growth = plant_params[:growth_stage].to_i
-      amount = new_growth - old_growth
+      event_type = plant_params[:growth_stage].to_i == @plant.breed.max_growth ? :finished : :growth
+      amount = plant_params[:growth_stage].to_i - @plant.growth_stage
     elsif plant_params[:alive]
       event_type = :died
       amount = 0
     end
     if @plant.update(plant_params)
       Event.create(plant_id: @plant.id, amount: amount, event_type: event_type)
-      render json: "plant updated", status: 200
+      render json: 'plant updated', status: :ok
     else
       render json: { errors: @plant.errors.full_messages }, status: :unprocessable_entity
-    end 
+    end
   end
 
-  def destroy 
+  def destroy
     if @plant.destroy
-      render json: "plant deleted", status: 200
+      render json: 'plant deleted', status: :ok
     else
       render json: { errors: @plant.errors.full_messages }, status: :unprocessable_entity
-    end 
+    end
   end
 
   private
