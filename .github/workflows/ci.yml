@@ -7,6 +7,18 @@ env:
 name: Rails Quality Check
 on: [push, pull_request]
 jobs:
+  rubocop-linting:
+    name: rubocop-linting
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Install Rubocop For Rails
+        run: gem install rubocop-rails
+      - name: Check code
+        run: rubocop
   rspec-test:
     name: rspec-automated-tests
     needs: rubocop-linting
@@ -44,15 +56,3 @@ jobs:
         with:
           name: simplecov-report
           path: coverage
-  rubocop-linting:
-    name: rubocop-linting
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-      - name: Install Rubocop For Rails
-        run: gem install rubocop-rails
-      - name: Check code
-        run: rubocop
