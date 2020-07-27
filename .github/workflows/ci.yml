@@ -1,5 +1,8 @@
 env:
   RUBY_VERSION: 2.7.1
+  RAILS_MASTER_KEY: ${ { secrets.RAILS_MASTER_KEY } }
+  PGHOST: 127.0.0.1
+  PGUSER: postgres
 
 name: Rails Quality Check
 on: [push, pull_request]
@@ -17,15 +20,6 @@ jobs:
         run: gem install rubocop-rails
       - name: Check code
         run: rubocop
-
-env:
-  PGHOST: 127.0.0.1
-  PGUSER: postgres
-
-...
-
-jobs:
-...
   rspec-test:
     name: rspec-automated-tests
     needs: rubocop-linting
@@ -33,7 +27,7 @@ jobs:
     services:
       db:
         image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
-        ports: ['5432:5432']
+        ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready 
           --health-interval 10s 
@@ -42,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
-        with: 
+        with:
           ruby-version: ${ { env.RUBY_VERSION } }
       - name: Setup Postgres
         run: sudo apt-get -yqq install libpq-dev
@@ -57,7 +51,7 @@ jobs:
           bundler exec rails db:migrate
       - name: Run RSpec Tests
         run: bundler exec rspec
-      - name: Upload coverage results    
+      - name: Upload coverage results
         uses: actions/upload-artifact@master
         if: always()
         with:
