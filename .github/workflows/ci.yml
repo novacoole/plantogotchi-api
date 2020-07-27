@@ -3,7 +3,7 @@ env:
   RAILS_MASTER_KEY: ${ { secrets.RAILS_MASTER_KEY } }
   PGHOST: 127.0.0.1
   PGUSER: postgres
-
+---
 name: Rails Quality Check
 on: [push, pull_request]
 
@@ -52,7 +52,7 @@ jobs:
       - name: Run RSpec Tests
         run: bundler exec rspec
       - name: Upload coverage results
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         if: always()
         with:
           name: simplecov-report
