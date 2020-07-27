@@ -15,14 +15,13 @@ FactoryBot.define do
     end
 
 
-    trait :update do
+    trait :update_water do
       sequence :name do |n| 
         "mybaby#{n}"
       end
       water_level { 60 }
-      food_level { 60 }
-      growth_stage { 2 }
     end
+
   end
 
 end

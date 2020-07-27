@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
 
-  describe "GET /users" do
+  describe "GET /users as admin" do
     before(:example) do
         @first_user = create(:user)
         @last_user = create(:user)
-        get '/users', headers: authenticated_header_specific(@first_user.id)
+        get '/users', headers: admin_authenticated_header
         @json_response = JSON.parse(response.body)
     end
 
@@ -15,7 +15,7 @@ RSpec.describe "Users", type: :request do
     end
   
     it 'JSON response contains the correct number of entries' do
-      expect(@json_response['users'].count).to eq(2)
+      expect(@json_response['users'].count).to eq(3)
     end
 
     it 'JSON response body contains expected attributes' do
@@ -29,6 +29,20 @@ RSpec.describe "Users", type: :request do
         'admin' => @first_user.admin
       }) 
     end
+  end
+
+
+  describe "GET /users as non-admin" do
+    before(:example) do
+        @first_user = create(:user)
+        @last_user = create(:user)
+        get '/users', headers: authenticated_header
+    end
+
+    it "returns http unauthorized" do
+      expect(response).to have_http_status(:unauthorized)
+    end
+
   end
 
   describe 'POST #create' do
@@ -109,13 +123,13 @@ RSpec.describe "Users", type: :request do
     it "updated user has correct attributes" do
       expect(User.find(@user.id).username).to eq(@user_params[:username])
     end
-
+    
   end
 
   describe "DELETE /users/:id #destroy" do
     before(:example) do
       @user = create(:user)
-      delete "/users/#{@user.id}", headers: authenticated_header
+      delete "/users/#{@user.id}", headers: authenticated_header_specific(@user.id)
     end
 
     it "returns http success" do
@@ -123,9 +137,23 @@ RSpec.describe "Users", type: :request do
     end
 
     it "user is no longer in database" do
-      expect(@user).to_not eq(nil)
+      expect(User.exists?(@user.id)).to be_falsey
     end
 
   end
+
+  describe "DELETE /users/:id #destroy as unauthorized user" do
+  before(:example) do
+    @user = create(:user)
+    @second_user = create(:user)
+    delete "/users/#{@user.id}", headers: authenticated_header_specific(@second_user.id)
+  end
+
+  it "returns http unauthorized" do
+    expect(response).to have_http_status(:unauthorized)
+  end
+
+
+end
 
 end

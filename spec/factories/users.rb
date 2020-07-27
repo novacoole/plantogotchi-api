@@ -12,6 +12,9 @@ FactoryBot.define do
     admin { false }
   end
 
+  trait :admin do
+    admin { true }
+  end
   trait :invalid do
     username {nil}
   end

@@ -76,8 +76,9 @@ RSpec.describe "Plants", type: :request do
 
   describe "GET /plants/:id #show" do
     before(:example) do
-      @plant = create(:plant)
-      get "/plants/#{@plant.id}", headers: authenticated_header
+      @user = create(:user)
+      @plant = create(:plant, user_id: @user.id)
+      get "/plants/#{@plant.id}", headers: authenticated_header_specific(@user.id)
       @json_response = JSON.parse(response.body)
     end
 
@@ -97,13 +98,29 @@ RSpec.describe "Plants", type: :request do
         'growth_stage' => @plant.growth_stage,
       }) 
     end
+
   end
 
-  describe "PUT /plants/:id #update" do
+  describe "GET /plants/:id #show with unauthorized user logged in" do
     before(:example) do
-      @plant = create(:plant)
-      @plant_params = attributes_for(:plant, :update)
-      put "/plants/#{@plant.id}", params: { plant: @plant_params }, headers: authenticated_header
+      @user = create(:user)
+      @second_user = create(:user)
+      @plant = create(:plant, user_id: @user.id)
+      get "/plants/#{@plant.id}", headers: authenticated_header_specific(@second_user.id)
+    end
+
+    it "returns http unauthorized" do
+      expect(response).to have_http_status(:unauthorized)
+    end
+
+  end
+
+  describe "PUT /plants/:id #update water_level" do
+    before(:example) do
+      @user = create(:user)
+      @plant = create(:plant, user_id: @user.id)
+      @plant_params = attributes_for(:plant, :update_water)
+      put "/plants/#{@plant.id}", params: {plant: @plant_params}, headers: authenticated_header_specific(@user.id)
     end
 
     it "returns http success" do
@@ -114,12 +131,83 @@ RSpec.describe "Plants", type: :request do
       expect(Plant.find(@plant.id).name).to eq(@plant_params[:name])
       expect(Plant.find(@plant.id).water_level).to eq(60)
     end
+
+    it "creates correct event for each update type" do
+      expect(@plant.events.last.event_type).to eq('water')
+    end
+
+  end
+
+  describe "PUT /plants/:id #update growth_stage" do
+    before(:example) do
+      @user = create(:user)
+      @plant = create(:plant, user_id: @user.id)
+      @plant_params = { growth_stage: 2 }
+      put "/plants/#{@plant.id}", params: {plant: @plant_params}, headers: authenticated_header_specific(@user.id)
+    end
+
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "updated plant has correct attributes" do
+      expect(Plant.find(@plant.id).growth_stage).to eq(2)
+    end
+
+    it "creates correct event for each update type" do
+      expect(@plant.events.last.event_type).to eq('growth')
+    end
+  end
+
+  describe "PUT /plants/:id #update finished" do
+    before(:example) do
+      @user = create(:user)
+      @plant = create(:plant, user_id: @user.id)
+      @plant_params = @plant_params = { growth_stage: 25 }
+      put "/plants/#{@plant.id}", params: {plant: @plant_params}, headers: authenticated_header_specific(@user.id)
+    end
+
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "updated plant has correct attributes" do
+      expect(Plant.find(@plant.id).growth_stage).to eq(25)
+    end
+
+    it "creates correct event for each update type" do
+      expect(@plant.events.last.event_type).to eq('finished')
+    end
+
+  end
+
+  describe "PUT /plants/:id #update died" do
+    before(:example) do
+      @user = create(:user)
+      @plant = create(:plant, user_id: @user.id)
+      @plant_params = @plant_params = { alive: false }
+      put "/plants/#{@plant.id}", params: {plant: @plant_params} ,headers: authenticated_header_specific(@user.id)
+    end
+
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "updated plant has correct attributes" do
+      expect(Plant.find(@plant.id).alive).to eq(false)
+    end
+
+    it "creates correct event for each update type" do
+      expect(@plant.events.last.event_type).to eq('died')
+    end
+
   end
 
   describe "DELETE /plants/:id #destroy" do
     before(:example) do
-      @plant = create(:plant)
-      delete "/plants/#{@plant.id}", headers: authenticated_header
+      @user = create(:user)
+      @plant = create(:plant, user_id: @user.id)
+      delete "/plants/#{@plant.id}", headers: authenticated_header_specific(@user.id)
     end
 
     it "returns http success" do
@@ -129,6 +217,8 @@ RSpec.describe "Plants", type: :request do
     it "plant is no longer in database" do
       expect(@plant).to_not eq(nil)
     end
+
+
 
   end
 
