@@ -26,18 +26,6 @@ RSpec.describe "breeds", type: :request do
       }) 
     end
 
-    context 'when non-admin accesses breeds' do
-      before(:example) do
-        @first_breed = create(:breed)
-        @last_breed = create(:breed)
-        get '/breeds', headers: authenticated_header
-    end
-
-    it "returns http unauthorized" do
-      expect(response).to have_http_status(:unauthorized)
-    end
-    
-    end
   end
 
   describe 'POST #create' do
@@ -137,6 +125,19 @@ RSpec.describe "breeds", type: :request do
         expect(@json_response['errors'][1]).to eq("Description can't be blank")
         expect(@json_response['errors'][2]).to eq("Description is too short (minimum is 20 characters)")
       end
+    end
+
+    context 'when non-admin attempts to update breeds' do
+      before(:example) do
+        @breed = create(:breed)
+        @breed_params = attributes_for(:breed, :invalid)
+        put "/breeds/#{@breed.id}", params: { breed: @breed_params }, headers: authenticated_header
+      end
+
+      it "returns http unauthorized" do
+        expect(response).to have_http_status(:unauthorized)
+      end
+    
     end
 
   end
