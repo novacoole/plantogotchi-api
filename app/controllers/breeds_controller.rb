@@ -1,7 +1,7 @@
 class BreedsController < ApplicationController
   before_action :set_breed, only: %i[show update destroy]
   before_action :authenticate_user
-  before_action :admin_check
+  before_action :admin_check, except: %i[index]
 
   def index
     @breeds = Breed.all
