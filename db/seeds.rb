@@ -187,3 +187,24 @@ wheat = Breed.create(
 if wheat.spritesheet.attach(io: File.open(Rails.root + "app/assets/wheat.png"), filename: 'wheat.jpg')
     puts 'breed created and attached!'
 end
+
+user = User.create(
+    username: 'TestUser',
+    email: 'test@test.com',
+    password: 'password'
+)
+
+if user.save
+    puts 'test user created'
+end
+
+admin = User.create(
+    username: 'AdminUser',
+    email: 'admin@test.com',
+    password: 'password',
+    admin: true
+)
+
+if admin.save
+    puts 'admin user created'
+end
