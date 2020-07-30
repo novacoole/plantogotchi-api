@@ -14,10 +14,12 @@ class PlantSerializer < ActiveModel::Serializer
     events
   ]
 
+  # Attaches last 10 events to each plant object in JSON.
   def events
     object.events.last(10)
   end
 
+  # Attaches the breed of the plant object in JSON.
   def breed
     BreedSerializer.new(object.breed)
   end

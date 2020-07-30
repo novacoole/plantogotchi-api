@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user, except: %i[create]
 
   def index
+    ## Only admins can see all Users.
     if current_user.admin?
       users = User.all
       render json: { users: users }, status: :ok
@@ -44,6 +45,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
+     # Rough authorization occurs here
     @user = params[:id] ? User.find(params[:id]) : current_user
     unless @user.id == current_user.id || current_user.admin?
       render json: 'Not authorized to interact with this user.', status: :unauthorized

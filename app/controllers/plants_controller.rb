@@ -3,6 +3,7 @@ class PlantsController < ApplicationController
   before_action :authenticate_user
 
   def index
+    # Admin can see all plants.
     if current_user.admin?
       plants = Plant.all.includes(:breed).order('created_at DESC')
     else
@@ -27,6 +28,8 @@ class PlantsController < ApplicationController
   end
 
   def update
+    # This action creates Events according to the type of change occuring to a plant.
+    # This allows us to have a log of all plant actions, with the intention of implementing a short history for the user.
     if plant_params[:water_level]
       event_type = :water
       amount = plant_params[:water_level].to_i - @plant.water_level
@@ -56,6 +59,7 @@ class PlantsController < ApplicationController
   private
 
   def set_plant
+    # Rough authorization occurs here
     @plant = Plant.find(params[:id])
     unless @plant.user_id == current_user.id || current_user.admin?
       render json: 'Not authorized to interact with this plant', status: :unauthorized
