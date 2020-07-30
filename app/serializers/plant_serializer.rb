@@ -13,6 +13,7 @@ class PlantSerializer < ActiveModel::Serializer
     created_at
     updated_at
     breed
+    events
   ]
 
   lazy_has_many :events
