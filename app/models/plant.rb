@@ -9,5 +9,4 @@ class Plant < ApplicationRecord
   belongs_to :breed
   belongs_to :user
   has_many :events
-  
 end

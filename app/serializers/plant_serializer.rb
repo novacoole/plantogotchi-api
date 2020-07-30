@@ -1,6 +1,6 @@
 class PlantSerializer < ActiveModel::Serializer
   include AmsLazyRelationships::Core
- 
+
   attributes %i[
     id
     name
