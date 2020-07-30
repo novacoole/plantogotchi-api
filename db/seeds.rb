@@ -205,6 +205,13 @@ admin = User.create(
     admin: true
 )
 
-if admin.save
-    puts 'admin user created'
+puts 'admin user created' if admin.save
+
+10.times do |x|
+    user = User.create(username: "user#{x}", email: "email#{x}@email.com", password: 'password')
+        puts 'random user created' if user.save 
+    5.times do |y|
+        plant = user.plants.create(name: "plant#{y}", breed_id:(1..20).to_a.sample)
+        puts 'random plant created' if plant.save
+    end
 end
