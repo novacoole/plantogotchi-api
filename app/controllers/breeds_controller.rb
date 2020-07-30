@@ -4,7 +4,7 @@ class BreedsController < ApplicationController
   before_action :admin_check, except: %i[index]
 
   def index
-    @breeds = Breed.all
+    @breeds = Breed.with_attached_spritesheet.all
     render json: @breeds, status: :ok
   end
 

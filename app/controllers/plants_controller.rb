@@ -5,7 +5,7 @@ class PlantsController < ApplicationController
   def index
     # Admin can see all plants.
     if current_user.admin?
-      plants = Plant.eager_load(:breed,:user)
+      plants = Plant.eager_load(:breed, :user, :events)
     else
       plants = current_user.plants.includes(:breed).order('created_at DESC')
     end

@@ -72,6 +72,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    ams_lazy_relationships (0.3.0)
+      active_model_serializers
+      batch-loader (~> 1)
     ast (2.4.1)
     aws-eventstream (1.1.0)
     aws-partitions (1.341.0)
@@ -89,6 +92,7 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.2.1)
       aws-eventstream (~> 1, >= 1.0.2)
+    batch-loader (1.5.0)
     bcrypt (3.1.13)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -245,6 +249,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  ams_lazy_relationships
   aws-sdk-s3
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)

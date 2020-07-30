@@ -1,4 +1,6 @@
 class PlantSerializer < ActiveModel::Serializer
+  include AmsLazyRelationships::Core
+
   attributes %i[
     id
     name
@@ -11,8 +13,10 @@ class PlantSerializer < ActiveModel::Serializer
     created_at
     updated_at
     breed
-    events
   ]
+
+  lazy_has_many :events
+  lazy_belongs_to :breed
 
   # Attaches last 10 events to each plant object in JSON.
   def events
