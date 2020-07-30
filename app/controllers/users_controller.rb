@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-     # Rough authorization occurs here
+    # Rough authorization occurs here
     @user = params[:id] ? User.find(params[:id]) : current_user
     unless @user.id == current_user.id || current_user.admin?
       render json: 'Not authorized to interact with this user.', status: :unauthorized

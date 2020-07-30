@@ -40,7 +40,7 @@ class BreedsController < ApplicationController
   private
 
   def admin_check
-     # Rough authorization occurs here
+    # Rough authorization occurs here
     render json: 'Not authorized to access breeds endpoint', status: :unauthorized if current_user.admin? == false
   end
 

@@ -5,7 +5,7 @@ class PlantsController < ApplicationController
   def index
     # Admin can see all plants.
     if current_user.admin?
-      plants = Plant.all.includes(:breed).order('created_at DESC')
+      plants = Plant.eager_load(:breed,:user)
     else
       plants = current_user.plants.includes(:breed).order('created_at DESC')
     end
@@ -29,7 +29,8 @@ class PlantsController < ApplicationController
 
   def update
     # This action creates Events according to the type of change occuring to a plant.
-    # This allows us to have a log of all plant actions, with the intention of implementing a short history for the user.
+    # This allows us to have a log of all plant actions
+    # The intention is to implement a short history for the user.
     if plant_params[:water_level]
       event_type = :water
       amount = plant_params[:water_level].to_i - @plant.water_level
