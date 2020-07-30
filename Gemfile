@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "email_validator", "~> 2.0"
 
 gem "rubocop-rails", "~> 2.7"
+
+gem "ams_lazy_relationships"
